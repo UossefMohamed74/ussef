@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #user-info {
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* أضف الأنماط الأخرى هنا */
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Mini App</h1>
+    </div>
+
+    <div id="user-info"></div> <!-- سيتم عرض اسم المستخدم هنا -->
+
+    <script>
+        // قراءة اسم المستخدم من الـ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // عرض اسم المستخدم في الصفحة
+        if (username) {
+            document.getElementById('user-info').innerHTML = `<h2>Welcome, @${username}!</h2>`;
+        } else {
+            document.getElementById('user-info').innerHTML = `<h2>Welcome, guest!</h2>`;
+        }
+    </script>
+
+</body>
+</html>
+
